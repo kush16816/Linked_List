@@ -80,10 +80,27 @@ public class Linkd_List {
 	 * Deletes first node of Linked List and returns new head node.
 	 * Returns an empty node if Linked List is empty or consists of single node
 	 */
-	public static Node pop_Node(Node head) {
+	public static Node pop_Head(Node head) {
 		if(head.next==null||head==null)
 			return new Node();
 		head = head.next;
+		return head;
+	}
+	
+	/**
+	 * @param head Contains head of Linked List
+	 * @return Returns head of remaining Linked List
+	 * Returns an empty node if Linked List is empty or consists of single node
+	 */
+	public static Node pop_Tail(Node head) {
+		if(head.next==null||head==null)
+			return new Node();
+		Node tmp_Node = new Node();
+		tmp_Node.next = head.next;
+		while(tmp_Node.next.next!=null) {
+			tmp_Node = tmp_Node.next;
+		}
+		tmp_Node.next = null;
 		return head;
 	}
 
@@ -115,7 +132,7 @@ public class Linkd_List {
 		add_Key(new_Node3, 70);
 		head = add_Node_In_Between(new_Node3, head, 30, 56);
 		show_Key(head);
-		head = pop_Node(head);
+		head = pop_Tail(head);
 		show_Key(head);
 	}
 }
