@@ -13,4 +13,9 @@ public class Node<K> {
 		this.key = null;
 		this.next =null;
 	}
+	
+	public Node(Node node) {
+		this.key = (K) node.key;
+		this.next = node.next;
+	}
 }

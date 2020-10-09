@@ -47,6 +47,32 @@ public class Linkd_List {
 			return new_Node;
 		}
 	}
+	
+	/**
+	 * @param <K>
+	 * @param new_Node Conatins node to be added
+	 * @param head Contains head of the Linked List
+	 * @param keyBefore Key after which node is to be inserted
+	 * @param keyAfter Key before which node is to be inserted
+	 * @return Returns head of the Linked List
+	 */
+	public static <K> Node add_Node_In_Between(Node new_Node, Node head, K keyBefore, K keyAfter) {
+		Node tmp_Node = new Node();
+		tmp_Node.key = head.key;
+		tmp_Node.next = head.next;
+		while(tmp_Node.key != keyBefore&&tmp_Node.next!=null) {
+			tmp_Node = tmp_Node.next;
+		}
+		if(head.key==keyBefore&&head.next.key==keyAfter) {
+			new_Node.next = head.next;
+			head.next = new_Node;
+		}
+		if(tmp_Node.next.key==keyAfter) {
+			new_Node.next = tmp_Node.next;
+			tmp_Node.next = new_Node;
+		}
+		return head;
+	}
 
 	/**
 	 * @param head Contains node from which list is to be printed.
@@ -74,7 +100,7 @@ public class Linkd_List {
 		head = add_Node_At_First(new_Node2, head);
 		show_Key(head);
 		add_Key(new_Node3, 70);
-		head = add_Node_At_First(new_Node3, head);
+		head = add_Node_In_Between(new_Node3, head, 30, 56);
 		show_Key(head);
 	}
 }
