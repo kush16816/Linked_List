@@ -34,6 +34,21 @@ public class Linkd_List {
 	}
 
 	/**
+	 * @param new_Node Contains node to be added
+	 * @param head Contains head of the Linked List
+	 * @return Returns head of the Linked List
+	 */
+	public static Node add_Node_At_First(Node new_Node, Node head) {
+		if (head.key == null) {
+			head.key = new_Node.key;
+			return head;
+		} else {
+			new_Node.next = head;
+			return new_Node;
+		}
+	}
+
+	/**
 	 * @param head Contains node from which list is to be printed.
 	 *             Prints Linked list from head to last.
 	 */
@@ -53,13 +68,13 @@ public class Linkd_List {
 		Node new_Node2 = new Node();
 		Node new_Node3 = new Node();
 		add_Key(new_Node1, 56);
-		add_Node_At_Last(new_Node1, head);
+		head = add_Node_At_First(new_Node1, head);
 		show_Key(head);
 		add_Key(new_Node2, 30);
-		add_Node_At_Last(new_Node2, head);
+		head = add_Node_At_First(new_Node2, head);
 		show_Key(head);
 		add_Key(new_Node3, 70);
-		add_Node_At_Last(new_Node3, head);
+		head = add_Node_At_First(new_Node3, head);
 		show_Key(head);
 	}
 }
