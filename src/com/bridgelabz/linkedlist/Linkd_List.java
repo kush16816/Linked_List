@@ -73,6 +73,19 @@ public class Linkd_List {
 		}
 		return head;
 	}
+	
+	/**
+	 * @param head Contains head of the Linked List
+	 * @return Returns new head of Linked list
+	 * Deletes first node of Linked List and returns new head node.
+	 * Returns an empty node if Linked List is empty or consists of single node
+	 */
+	public static Node pop_Node(Node head) {
+		if(head.next==null||head==null)
+			return new Node();
+		head = head.next;
+		return head;
+	}
 
 	/**
 	 * @param head Contains node from which list is to be printed.
@@ -101,6 +114,8 @@ public class Linkd_List {
 		show_Key(head);
 		add_Key(new_Node3, 70);
 		head = add_Node_In_Between(new_Node3, head, 30, 56);
+		show_Key(head);
+		head = pop_Node(head);
 		show_Key(head);
 	}
 }
